@@ -143,6 +143,8 @@ module Generic : Scheme = struct
   let safe_chars_for_query_value : safe_chars =
     let a = Array.copy safe_chars_for_query in
     a.(Char.code ',') <- false;
+    a.(Char.code '=') <- false;
+    a.(Char.code '/') <- false;
     a
 
   let safe_chars_for_fragment : safe_chars = safe_chars_for_query
